@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Make a choice
+{% endblock %}
+
+{% block content %}
+     <p>
+        Your wait status is {{ player.wait}}. Your side is {{player.side}} . Your type is {{player.type}} . Your partner's id is {{player.partner}}. You have received the following signal: {{player.signal}} . Choose if you want to propose or not
+     </p>
+    {% formfield player.choice label="I choose:" %}
+    {% next_button %}
+
+{% endblock %}

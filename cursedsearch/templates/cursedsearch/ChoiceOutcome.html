@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Choice Outcome
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Your side is {{player.side}} . Your type is {{player.type}} . At the beginning of this period, your wait status was {{ player.wait}}.
+    </p>
+
+    {% if player.wait == 0 and player.match == 1 %}
+    <p>
+        The match was successful.
+    </p>
+    {% elif player.wait == 0 and player.match == 0 %}
+    <p>
+        The match was unsuccessful.
+    </p>
+    {% endif %}
+
+    {% next_button %}
+
+{% endblock %}
+
+

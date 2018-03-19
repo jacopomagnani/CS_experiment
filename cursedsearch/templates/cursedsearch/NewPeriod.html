@@ -1,0 +1,34 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    New Period
+{% endblock %}
+
+
+
+{% block content %}
+     <p>
+         Your type is {{player.type}} .
+     </p>
+
+    {% if player.wait == 0 %}
+    <p>
+        You are currently in the market. In the next screen you will receive information about a potential partner.
+    </p>
+    {% elif player.wait == 1 %}
+    <p>
+        You are currently on hold. You are the first in the waiting list.
+    </p>
+    {% elif player.wait == 2 %}
+    <p>
+        You are currently on hold. You are the second in the waiting list.
+    </p>
+    {% elif player.wait == 3 %}
+    <p>
+        You are currently on hold. You are the third in the waiting list.
+    </p>
+    {% endif %}
+
+    {% next_button %}
+{% endblock %}

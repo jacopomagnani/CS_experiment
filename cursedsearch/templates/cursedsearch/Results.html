@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Your type is {{ player.type }}. Your payoff from this round is {{ player.payoff }}.
+    </p>
+{% endblock %}
+
+
