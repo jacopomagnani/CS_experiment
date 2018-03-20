@@ -110,7 +110,7 @@ DATABASES = {
 
 
 # if an app is included in SESSION_CONFIGS, you don't need to list it here
-INSTALLED_APPS = ['otree','otree_export_utils']
+INSTALLED_APPS = ['otree']
 
 # inactive session configs
 ### {
