@@ -6,9 +6,23 @@
 {% endblock %}
 
 {% block content %}
-     <p>
-         You have received a {{player.signal}} clue. Choose if you want to propose to form a match with the other player or not:
-     </p>
+    {% if player.signal == "red" %}
+    <p>
+        You have received a <font color="red">{{player.signal}}</font> clue.
+    </p>
+    {% elif player.signal == "yellow" %}
+    <p>
+        You have received a <font color="gold">{{player.signal}}</font> clue.
+    </p>
+    {% elif player.signal == "blue" %}
+    <p>
+        You have received a <font color="blue">{{player.signal}}</font> clue.
+    </p>
+    {% endif %}
+    <p>
+        Choose if you want to propose to form a match with the other player or not.
+    </p>
+
     {% formfield player.choice label="I choose:" %}
     {% next_button %}
 
