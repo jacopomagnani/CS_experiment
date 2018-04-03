@@ -7,10 +7,6 @@
 
 {% block content %}
 
-    <p>
-        Your side is {{player.side}} . Your type is {{player.type}} . At the beginning of this period, your wait status was {{ player.wait}}.
-    </p>
-
     {% if player.wait == 0 and player.match == 1 %}
     <p>
         The match was successful.
@@ -23,6 +19,26 @@
 
     {% next_button %}
 
+{% endblock %}
+
+{% block styles %}
+    <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $(function () {
+            $('.otree-timer__time-left').on('update.countdown', function (event) {
+                if (event.offset.totalSeconds === 10) {
+                    $('.otree-timer').show();
+                }
+            });
+        });
+    </script>
 {% endblock %}
 
 

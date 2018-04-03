@@ -10,10 +10,13 @@ class MyWaitPage1(WaitPage):
 
 
 class NewPeriod(Page):
-    pass
+
+    timeout_seconds = 30
 
 
 class Choice(Page):
+
+    timeout_seconds = 60
 
     form_model = 'player'
     form_fields = ['choice']
@@ -29,6 +32,8 @@ class MyWaitPage2(WaitPage):
 
 
 class ChoiceOutcome(Page):
+
+    timeout_seconds = 30
 
     def is_displayed(self):
         return self.player.wait == 0

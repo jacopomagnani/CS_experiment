@@ -7,9 +7,29 @@
 
 {% block content %}
      <p>
-        Your wait status is {{ player.wait}}. Your side is {{player.side}} . Your type is {{player.type}} . Your partner's id is {{player.partner}}. You have received the following signal: {{player.signal}} . Choose if you want to propose or not
+         You have received a {{player.signal}} clue. Choose if you want to propose to form a match with the other player or not:
      </p>
     {% formfield player.choice label="I choose:" %}
     {% next_button %}
 
+{% endblock %}
+
+{% block styles %}
+    <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $(function () {
+            $('.otree-timer__time-left').on('update.countdown', function (event) {
+                if (event.offset.totalSeconds === 10) {
+                    $('.otree-timer').show();
+                }
+            });
+        });
+    </script>
 {% endblock %}

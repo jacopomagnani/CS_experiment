@@ -20,7 +20,7 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 2
     types = [5 , 10, 100]
-    signals = ["L","M","H"]
+    signals = ["blue", "yellow", "red"]
     pL = [2/3, 1/3, 0]
     pM = [1/8, 3/4, 1/8]
     pH = [0, 1/3, 2/3]
