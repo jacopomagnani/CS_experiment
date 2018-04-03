@@ -9,7 +9,7 @@
 
 {% block content %}
      <p>
-         Your type is {{player.type}} .
+         This is period {{player.round_number}} of round 1. Your type is {{player.type}} .
      </p>
 
     {% if player.wait == 0 %}
@@ -31,6 +31,29 @@
     {% endif %}
 
     {% next_button %}
+
+    <h4>Round history</h4>
+    <table class="table">
+        <tr>
+            <th>Period</th>
+            <th>Status</th>
+            <th>Observed clue</th>
+            <th>Did you propose?</th>
+            <th>Successful match?</th>
+            <th>Match payoff</th>
+        </tr>
+        {% for p in player.in_all_rounds %}
+            <tr>
+                <td>{{ p.round_number }}</td>
+                <td>{% if p.wait == 0 %} In market {% elif p.wait == 1 %} First in waiting list {% elif p.wait == 2 %} Second in waiting list {% elif p.wait == 3 %} Third in waiting list {% endif %}  </td>
+                <td> {% if p.wait > 0 or p.round_number == player.round_number %} - {% else %} {{p.signal}} {% endif %}</td>
+                <td> {% if p.wait > 0 or p.round_number == player.round_number %} - {% elif p.choice == 1%} Yes {% elif p.choice == 0%} No {% endif %}</td>
+                <td> {% if p.wait > 0 or p.round_number == player.round_number %} - {% elif p.match == 0 %} No {% elif p.match == 1 %} Yes {% endif %}</td>
+                <td> {% if p.wait > 0 or p.round_number == player.round_number or p.match == 0 %} - {% else %} {{p.payoff}} {% endif %}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
 {% endblock %}
 
 {% block styles %}

@@ -8,7 +8,10 @@
 {% block content %}
 
     <p>
-        This round is over. This was the last round in the experiment. Your total payment is: ?
+        This was the last round in the experiment. Your total payoff is: {{player.participant.payoff}}.
+    </p>
+    <p>
+        Your payment is: {{player.participant.payoff_plus_participation_fee}}.
     </p>
 
 

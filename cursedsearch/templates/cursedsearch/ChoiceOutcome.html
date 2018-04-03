@@ -9,11 +9,11 @@
 
     {% if player.wait == 0 and player.match == 1 %}
     <p>
-        The match was successful.
+        The match was successful. Your match payoff is: {{player.payoff}}. You will now be placed in the waiting list.
     </p>
     {% elif player.wait == 0 and player.match == 0 %}
     <p>
-        The match was unsuccessful.
+        The match was unsuccessful. In the next period you will still be in the market.
     </p>
     {% endif %}
 
