@@ -18,7 +18,7 @@ Search and Matching Market with noisy signals
 class Constants(BaseConstants):
     name_in_url = 'cursedsearch'
     players_per_group = None
-    num_rounds = 2
+    num_rounds = 3
     types = [5 , 10, 100]
     signals = ["blue", "yellow", "red"]
     pL = [2/3, 1/3, 0]

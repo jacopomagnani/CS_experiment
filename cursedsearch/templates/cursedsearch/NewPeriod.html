@@ -9,7 +9,7 @@
 
 {% block content %}
      <p>
-         This is period {{player.round_number}} of round 1. Your type is {{player.type}} .
+         This is period {{player.round_number}} of market session 1. Your type is {{player.type}} .
      </p>
 
     {% if player.wait == 0 %}
@@ -32,7 +32,7 @@
 
     {% next_button %}
 
-    <h4>Round history</h4>
+    <h4>History of this market session</h4>
     <table class="table">
         <tr>
             <th>Period</th>

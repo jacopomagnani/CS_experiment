@@ -2,29 +2,14 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Make a choice
+    This Market Session is Over
 {% endblock %}
 
 {% block content %}
-    {% if player.signal == "red" %}
-    <p>
-        You have received a <font color="red">{{player.signal}}</font> clue.
-    </p>
-    {% elif player.signal == "yellow" %}
-    <p>
-        You have received a <font color="gold">{{player.signal}}</font> clue.
-    </p>
-    {% elif player.signal == "blue" %}
-    <p>
-        You have received a <font color="blue">{{player.signal}}</font> clue.
-    </p>
-    {% endif %}
-    <p>
-        Choose if you want to propose to form a match with the other player or not.
-    </p>
 
-    {% formfield player.choice label="I choose:" %}
-    {% next_button %}
+    <p>
+        This was the last period of the current market session. Your total payoff in this market session is: .
+    </p>
 
     <h4>History of this market session</h4>
     <table class="table">
@@ -50,22 +35,3 @@
 
 {% endblock %}
 
-{% block styles %}
-    <style>
-        .otree-timer {
-            display: none;
-        }
-    </style>
-{% endblock %}
-
-{% block scripts %}
-    <script>
-        $(function () {
-            $('.otree-timer__time-left').on('update.countdown', function (event) {
-                if (event.offset.totalSeconds === 10) {
-                    $('.otree-timer').show();
-                }
-            });
-        });
-    </script>
-{% endblock %}

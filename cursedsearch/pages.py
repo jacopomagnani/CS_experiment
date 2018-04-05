@@ -41,7 +41,15 @@ class ChoiceOutcome(Page):
         return self.player.wait == 0 and self.player.choice == 1
 
 
+class LastPeriod(Page):
+
+    timeout_seconds = 20
+
+    def is_displayed(self):
+        return self.round_number == Constants.num_rounds
+
 class FinalPage(Page):
+
     def is_displayed(self):
         return self.round_number == Constants.num_rounds
 
@@ -52,5 +60,6 @@ page_sequence = [
     Choice,
     MyWaitPage2,
     ChoiceOutcome,
+    LastPeriod,
     FinalPage
 ]
