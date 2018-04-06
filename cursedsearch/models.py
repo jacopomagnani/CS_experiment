@@ -18,7 +18,10 @@ Search and Matching Market with noisy signals
 class Constants(BaseConstants):
     name_in_url = 'cursedsearch'
     players_per_group = None
-    num_rounds = 3
+    num_rounds = 8
+    num_markets = 3
+    restart_rounds = [1, 4, 6]
+    termination_rounds = [3, 5, 8]
     types = [5 , 10, 100]
     signals = ["blue", "yellow", "red"]
     pL = [2/3, 1/3, 0]
@@ -28,12 +31,20 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
 
+    market_number = models.IntegerField()
+    period = models.IntegerField()
+
     def update_market(self):
 
-# assign side, type and wait status
+# set market number, side, type and wait status
+        #first, for round 1
         if self.round_number == 1:
+            # set market number, and session vars
+            self.market_number = 1
+            self.period = 1
             self.session.vars['nplayers'] = len(self.get_players())
             self.session.vars['waitlistlength'] = int(len(self.get_players())/6-1)
+            # assign side
             side_list = numpy.random.permutation([1, 2] * int(self.session.vars['nplayers']/2))
             k = 0
             for p in self.get_players():
@@ -47,6 +58,7 @@ class Subsession(BaseSubsession):
                     side1_players.append(pid)
                 else:
                     side2_players.append(pid)
+            # assign type
             for s in [1,2]:
                 k = 0
                 type_list = numpy.random.permutation(Constants.types*int(self.session.vars['nplayers']/6))
@@ -54,6 +66,7 @@ class Subsession(BaseSubsession):
                     if p.side == s:
                         p.type = type_list[k]
                         k = k+1
+            # assign wait status
             if self.session.vars['nplayers'] == 6:
                 for p in self.get_players():
                     p.wait = 0
@@ -75,11 +88,55 @@ class Subsession(BaseSubsession):
                             if p.side == s and p.type == t:
                                 p.wait = wait_list[k]
                                 k = k + 1
-        if self.round_number > 1:
+        # then for any restart round >1
+        if self.round_number in Constants.restart_rounds and self.round_number > 1:
+            # update market number
+            self.market_number = self.in_round(self.round_number-1).market_number + 1
+            self.period = 1
+            # keep side
+            for p in self.get_players():
+                p.side = p.in_round(self.round_number - 1).side
+            # reassign type
+            for s in [1,2]:
+                k = 0
+                type_list = numpy.random.permutation(Constants.types*int(self.session.vars['nplayers']/6))
+                for p in self.get_players():
+                    if p.side == s:
+                        p.type = type_list[k]
+                        k = k+1
+            # reassign wait status
+            if self.session.vars['nplayers'] == 6:
+                for p in self.get_players():
+                    p.wait = 0
+            elif self.session.vars['nplayers'] == 12:
+                for s in [1, 2]:
+                    for t in Constants.types:
+                        k = 0
+                        wait_list = numpy.random.permutation([0, 1])
+                        for p in self.get_players():
+                            if p.side == s and p.type == t:
+                                p.wait = wait_list[k]
+                                k = k + 1
+            elif self.session.vars['nplayers'] == 24:
+                for s in [1, 2]:
+                    for t in Constants.types:
+                        k = 0
+                        wait_list = numpy.random.permutation([0, 1, 2, 3])
+                        for p in self.get_players():
+                            if p.side == s and p.type == t:
+                                p.wait = wait_list[k]
+                                k = k + 1
+        # then for any round that is not a restart round
+        if self.round_number not in Constants.restart_rounds:
+            # keep market number and update period
+            self.market_number = self.in_round(self.round_number-1).market_number
+            self.period = self.in_round(self.round_number-1).period + 1
+            # keep side and type
             for p in self.get_players():
                 p.side = p.in_round(self.round_number - 1).side
                 p.type = p.in_round(self.round_number - 1).type
                 p.wait = p.in_round(self.round_number - 1).wait
+            #update wait status
             for p in self.get_players():
                 if p.in_round(self.round_number - 1).match == 1:
                     p.wait = self.session.vars['waitlistlength']
@@ -144,3 +201,9 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
     )
     match = models.IntegerField()
+
+    def in_current_market(self):
+        mn = self.subsession.market_number
+        first = Constants.restart_rounds[mn-1]
+        last = self.round_number
+        return self.in_rounds(first,last)

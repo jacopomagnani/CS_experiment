@@ -8,8 +8,10 @@
 {% block content %}
 
     <p>
-        This was the last period of the current market session. Your total payoff in this market session is: .
+        This was the last period of the current market session. Your total payoff in this market session is: {{market_payoff}}.
     </p>
+
+    {% next_button %}
 
     <h4>History of this market session</h4>
     <table class="table">
@@ -21,17 +23,37 @@
             <th>Successful match?</th>
             <th>Match payoff</th>
         </tr>
-        {% for p in player.in_all_rounds %}
+        {% for p in player.in_current_market %}
             <tr>
-                <td>{{ p.round_number }}</td>
+                <td>{{ p.subsession.period }}</td>
                 <td>{% if p.wait == 0 %} In market {% elif p.wait == 1 %} First in waiting list {% elif p.wait == 2 %} Second in waiting list {% elif p.wait == 3 %} Third in waiting list {% endif %}  </td>
-                <td> {% if p.wait > 0 or p.round_number == player.round_number %} - {% else %} {{p.signal}} {% endif %}</td>
-                <td> {% if p.wait > 0 or p.round_number == player.round_number %} - {% elif p.choice == 1%} Yes {% elif p.choice == 0%} No {% endif %}</td>
-                <td> {% if p.wait > 0 or p.round_number == player.round_number %} - {% elif p.match == 0 %} No {% elif p.match == 1 %} Yes {% endif %}</td>
-                <td> {% if p.wait > 0 or p.round_number == player.round_number or p.match == 0 %} - {% else %} {{p.payoff}} {% endif %}</td>
+                <td> {% if p.wait > 0 %} - {% else %} {{p.signal}} {% endif %}</td>
+                <td> {% if p.wait > 0 %} - {% elif p.choice == 1%} Yes {% elif p.choice == 0%} No {% endif %}</td>
+                <td> {% if p.wait > 0 %} - {% elif p.match == 0 %} No {% elif p.match == 1 %} Yes {% endif %}</td>
+                <td> {% if p.wait > 0 or p.match == 0 %} - {% else %} {{p.payoff}} {% endif %}</td>
             </tr>
         {% endfor %}
     </table>
 
 {% endblock %}
 
+
+{% block styles %}
+    <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $(function () {
+            $('.otree-timer__time-left').on('update.countdown', function (event) {
+                if (event.offset.totalSeconds === 10) {
+                    $('.otree-timer').show();
+                }
+            });
+        });
+    </script>
+{% endblock %}

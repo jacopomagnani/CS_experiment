@@ -46,7 +46,10 @@ class LastPeriod(Page):
     timeout_seconds = 20
 
     def is_displayed(self):
-        return self.round_number == Constants.num_rounds
+        return self.round_number in Constants.termination_rounds
+
+    def vars_for_template(self):
+        return {'market_payoff': sum([p.payoff for p in self.player.in_current_market()])}
 
 class FinalPage(Page):
 

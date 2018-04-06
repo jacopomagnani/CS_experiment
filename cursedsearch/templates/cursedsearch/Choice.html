@@ -6,6 +6,10 @@
 {% endblock %}
 
 {% block content %}
+
+    <p>
+        Your type is {{player.type}} .
+     </p>
     {% if player.signal == "red" %}
     <p>
         You have received a <font color="red">{{player.signal}}</font> clue.
@@ -36,11 +40,11 @@
             <th>Successful match?</th>
             <th>Match payoff</th>
         </tr>
-        {% for p in player.in_all_rounds %}
+        {% for p in player.in_current_market %}
             <tr>
-                <td>{{ p.round_number }}</td>
+                <td>{{ p.subsession.period }}</td>
                 <td>{% if p.wait == 0 %} In market {% elif p.wait == 1 %} First in waiting list {% elif p.wait == 2 %} Second in waiting list {% elif p.wait == 3 %} Third in waiting list {% endif %}  </td>
-                <td> {% if p.wait > 0 or p.round_number == player.round_number %} - {% else %} {{p.signal}} {% endif %}</td>
+                <td> {% if p.wait > 0 %} - {% else %} {{p.signal}} {% endif %}</td>
                 <td> {% if p.wait > 0 or p.round_number == player.round_number %} - {% elif p.choice == 1%} Yes {% elif p.choice == 0%} No {% endif %}</td>
                 <td> {% if p.wait > 0 or p.round_number == player.round_number %} - {% elif p.match == 0 %} No {% elif p.match == 1 %} Yes {% endif %}</td>
                 <td> {% if p.wait > 0 or p.round_number == player.round_number or p.match == 0 %} - {% else %} {{p.payoff}} {% endif %}</td>
