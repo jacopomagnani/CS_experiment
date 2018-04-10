@@ -36,9 +36,9 @@ USE_POINTS = True
 
 ROOMS = [
     {
-        'name': 'econ101',
-        'display_name': 'Econ 101 class',
-        'participant_label_file': '_rooms/econ101.txt',
+        'name': 'cursedsearchroom',
+        'display_name': 'experiment',
+        'participant_label_file': '_rooms/room1.txt',
     },
     {
         'name': 'live_demo',
