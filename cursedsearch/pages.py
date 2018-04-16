@@ -11,12 +11,12 @@ class MyWaitPage1(WaitPage):
 
 class NewPeriod(Page):
 
-    timeout_seconds = 30
+    timeout_seconds = 7
 
 
 class Choice(Page):
 
-    timeout_seconds = 20
+    timeout_seconds = 7
 
     form_model = 'player'
     form_fields = ['choice']
@@ -24,7 +24,21 @@ class Choice(Page):
     def is_displayed(self):
         return self.player.wait == 0
 
-    timeout_submission = {'choice' : True}
+    def before_next_page(self):
+        if self.timeout_happened:
+            self.player.late = 1
+            # if self.player.id_in_group>0:
+            #     self.timeout_submission = {'choice': True}
+            #     self.player.choice = True
+            if self.player.type == 5 or self.player.signal == "red":
+                self.player.choice = True
+            elif self.player.type == 10:
+                if self.player.signal == "yellow":
+                    self.player.choice = True
+                else:
+                    self.player.choice = False
+            elif self.player.type == 100:
+                self.player.choice = False
 
 
 class MyWaitPage2(WaitPage):
@@ -35,7 +49,7 @@ class MyWaitPage2(WaitPage):
 
 class ChoiceOutcome(Page):
 
-    timeout_seconds = 10
+    timeout_seconds = 5
 
     def is_displayed(self):
         return self.player.wait == 0 and self.player.choice == 1
@@ -50,6 +64,7 @@ class LastPeriod(Page):
 
     def vars_for_template(self):
         return {'market_payoff': sum([p.payoff for p in self.player.in_current_market()])}
+
 
 class FinalPage(Page):
 

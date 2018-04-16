@@ -201,6 +201,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelectHorizontal
     )
     match = models.IntegerField()
+    late = models.IntegerField()
 
     def in_current_market(self):
         mn = self.subsession.market_number
