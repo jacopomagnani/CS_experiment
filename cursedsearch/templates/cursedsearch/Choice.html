@@ -2,13 +2,13 @@
 {% load staticfiles otree %}
 
 {% block title %}
-    Make a choice
+    Make a Choice
 {% endblock %}
 
 {% block content %}
 
     <p>
-        Your type is {{player.type}} .
+         Your value is {{player.type}} (you are an {% if player.type == 5 %} L {% elif player.type == 10 %} M {% elif player.type == 100 %} H {% endif %} player).
      </p>
     {% if player.signal == "red" %}
     <p>
@@ -24,7 +24,7 @@
     </p>
     {% endif %}
     <p>
-        Choose if you want to propose to form a match with the other player or not.
+        Choose if you want to propose to form a partnership with the other player or not.
     </p>
 
     {% formfield player.choice label="I choose:" %}
@@ -33,12 +33,13 @@
     <h4>History of this market session</h4>
     <table class="table">
         <tr>
-            <th>Period</th>
-            <th>Status</th>
-            <th>Observed clue</th>
+            <th>Round</th>
+            <th>Active or on hold?</th>
+            <th>Clue</th>
             <th>Did you propose?</th>
-            <th>Successful match?</th>
-            <th>Match payoff</th>
+            <th>Partnership?</th>
+            <th>Partner's value</th>
+            <th>Your points</th>
         </tr>
         {% for p in player.in_current_market %}
             <tr>
@@ -47,6 +48,7 @@
                 <td> {% if p.wait > 0 %} - {% else %} {{p.signal}} {% endif %}</td>
                 <td> {% if p.wait > 0 or p.round_number == player.round_number %} - {% elif p.choice == 1%} Yes {% elif p.choice == 0%} No {% endif %}</td>
                 <td> {% if p.wait > 0 or p.round_number == player.round_number %} - {% elif p.match == 0 %} No {% elif p.match == 1 %} Yes {% endif %}</td>
+                <td>{% if p.wait > 0 or p.round_number == player.round_number or p.match == 0 %} - {% else %} {% if p.payoff == 5 %} L {% elif p.payoff == 10 %} M {% elif p.payoff == 100 %} H {% endif %} {% endif %}</td>
                 <td> {% if p.wait > 0 or p.round_number == player.round_number or p.match == 0 %} - {% else %} {{p.payoff}} {% endif %}</td>
             </tr>
         {% endfor %}

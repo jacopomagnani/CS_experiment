@@ -9,12 +9,13 @@
 
 {% block content %}
      <p>
-         This is period {{subsession.period}} of market session {{subsession.market_number}}. Your type is {{player.type}} .
+         This is round {{subsession.period}} of market session {{subsession.market_number}}.
+         Your value is {{player.type}} (you are an {% if player.type == 5 %} L {% elif player.type == 10 %} M {% elif player.type == 100 %} H {% endif %} player).
      </p>
 
     {% if player.wait == 0 %}
     <p>
-        You are currently in the market. In the next screen you will receive information about a potential partner.
+        You are currently an active player. In the next screen you will receive information about a potential partner.
     </p>
     {% elif player.wait == 1 %}
     <p>
@@ -35,20 +36,22 @@
     <h4>History of this market session</h4>
     <table class="table">
         <tr>
-            <th>Period</th>
-            <th>Status</th>
-            <th>Observed clue</th>
+            <th>Round</th>
+            <th>Active or on hold?</th>
+            <th>Clue</th>
             <th>Did you propose?</th>
-            <th>Successful match?</th>
-            <th>Match payoff</th>
+            <th>Partnership?</th>
+            <th>Partner's value</th>
+            <th>Your points</th>
         </tr>
         {% for p in player.in_current_market %}
             <tr>
                 <td>{{ p.subsession.period }}</td>
-                <td>{% if p.wait == 0 %} In market {% elif p.wait == 1 %} First in waiting list {% elif p.wait == 2 %} Second in waiting list {% elif p.wait == 3 %} Third in waiting list {% endif %}  </td>
+                <td>{% if p.wait == 0 %} Active {% elif p.wait == 1 %} First in waiting list {% elif p.wait == 2 %} Second in waiting list {% elif p.wait == 3 %} Third in waiting list {% endif %}  </td>
                 <td> {% if p.wait > 0 or p.round_number == player.round_number %} - {% else %} {{p.signal}} {% endif %}</td>
                 <td> {% if p.wait > 0 or p.round_number == player.round_number %} - {% elif p.choice == 1%} Yes {% elif p.choice == 0%} No {% endif %}</td>
                 <td> {% if p.wait > 0 or p.round_number == player.round_number %} - {% elif p.match == 0 %} No {% elif p.match == 1 %} Yes {% endif %}</td>
+                <td>{% if p.wait > 0 or p.round_number == player.round_number or p.match == 0 %} - {% else %} {% if p.payoff == 5 %} L {% elif p.payoff == 10 %} M {% elif p.payoff == 100 %} H {% endif %} {% endif %}</td>
                 <td> {% if p.wait > 0 or p.round_number == player.round_number or p.match == 0 %} - {% else %} {{p.payoff}} {% endif %}</td>
             </tr>
         {% endfor %}

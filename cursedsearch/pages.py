@@ -1,7 +1,7 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
-
+import random
 
 class MyWaitPage1(WaitPage):
 
@@ -11,12 +11,12 @@ class MyWaitPage1(WaitPage):
 
 class NewPeriod(Page):
 
-    timeout_seconds = 7
+    timeout_seconds = 20
 
 
 class Choice(Page):
 
-    timeout_seconds = 7
+    timeout_seconds = 20
 
     form_model = 'player'
     form_fields = ['choice']
@@ -27,18 +27,11 @@ class Choice(Page):
     def before_next_page(self):
         if self.timeout_happened:
             self.player.late = 1
-            # if self.player.id_in_group>0:
-            #     self.timeout_submission = {'choice': True}
-            #     self.player.choice = True
-            if self.player.type == 5 or self.player.signal == "red":
-                self.player.choice = True
-            elif self.player.type == 10:
-                if self.player.signal == "yellow":
-                    self.player.choice = True
-                else:
-                    self.player.choice = False
-            elif self.player.type == 100:
+            flip = random.randint(0,1)
+            if flip ==0:
                 self.player.choice = False
+            else:
+                self.player.choice = True
 
 
 class MyWaitPage2(WaitPage):
@@ -49,7 +42,7 @@ class MyWaitPage2(WaitPage):
 
 class ChoiceOutcome(Page):
 
-    timeout_seconds = 5
+    timeout_seconds = 10
 
     def is_displayed(self):
         return self.player.wait == 0 and self.player.choice == 1
