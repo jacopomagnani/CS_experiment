@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e377f16-024f-4b78-b3d0-59083abce197" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/cursedsearch/models.py" afterPath="$PROJECT_DIR$/cursedsearch/models.py" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/Choice.html" afterPath="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/Choice.html" />
+      <change beforePath="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/LastPeriod.html" afterPath="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/LastPeriod.html" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change beforePath="$PROJECT_DIR$/settings.py" afterPath="$PROJECT_DIR$/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,10 +21,20 @@
         <entry file="file://$PROJECT_DIR$/cursedsearch/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="375">
-              <caret line="25" column="39" lean-forward="true" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+              <caret line="25" column="39" lean-forward="false" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
               <folding>
                 <element signature="e#0#134#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -40,7 +54,7 @@
       <file leaf-file-name="NewPeriod.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cursedsearch/templates/cursedsearch/NewPeriod.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
+            <state relative-caret-position="-349">
               <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
               <folding />
             </state>
@@ -50,8 +64,8 @@
       <file leaf-file-name="Choice.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cursedsearch/templates/cursedsearch/Choice.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="32" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="41" selection-end-column="32" />
+            <state relative-caret-position="621">
+              <caret line="46" column="47" lean-forward="false" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -60,7 +74,7 @@
       <file leaf-file-name="ChoiceOutcome.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cursedsearch/templates/cursedsearch/ChoiceOutcome.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
+            <state relative-caret-position="110">
               <caret line="15" column="92" lean-forward="false" selection-start-line="15" selection-start-column="92" selection-end-line="15" selection-end-column="92" />
               <folding />
             </state>
@@ -70,8 +84,8 @@
       <file leaf-file-name="LastPeriod.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cursedsearch/templates/cursedsearch/LastPeriod.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="33" column="37" lean-forward="false" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+            <state relative-caret-position="435">
+              <caret line="29" column="47" lean-forward="false" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -95,15 +109,15 @@
         <option value="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/FinalPage.html" />
         <option value="$PROJECT_DIR$/.envls" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/settings.py" />
         <option value="$PROJECT_DIR$/_rooms/econ101.txt" />
         <option value="$PROJECT_DIR$/_rooms/room1.txt" />
         <option value="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/ChoiceOutcome.html" />
-        <option value="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/Choice.html" />
-        <option value="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/LastPeriod.html" />
         <option value="$PROJECT_DIR$/cursedsearch/pages.py" />
         <option value="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/NewPeriod.html" />
         <option value="$PROJECT_DIR$/cursedsearch/models.py" />
+        <option value="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/Choice.html" />
+        <option value="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/LastPeriod.html" />
+        <option value="$PROJECT_DIR$/settings.py" />
       </list>
     </option>
   </component>
@@ -563,45 +577,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cursedsearch/templates/cursedsearch/ChoiceOutcome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="92" lean-forward="false" selection-start-line="15" selection-start-column="92" selection-end-line="15" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cursedsearch/templates/cursedsearch/Choice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="32" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="41" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cursedsearch/templates/cursedsearch/LastPeriod.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="37" lean-forward="false" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cursedsearch/templates/cursedsearch/NewPeriod.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cursedsearch/pages.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
@@ -612,10 +587,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cursedsearch/templates/cursedsearch/NewPeriod.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-349">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cursedsearch/templates/cursedsearch/Choice.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="46" column="47" lean-forward="false" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cursedsearch/templates/cursedsearch/ChoiceOutcome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="15" column="92" lean-forward="false" selection-start-line="15" selection-start-column="92" selection-end-line="15" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cursedsearch/templates/cursedsearch/LastPeriod.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="47" lean-forward="false" selection-start-line="29" selection-start-column="47" selection-end-line="29" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="21" column="35" lean-forward="false" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cursedsearch/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
-          <caret line="25" column="39" lean-forward="true" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+          <caret line="25" column="39" lean-forward="false" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
           <folding>
             <element signature="e#0#134#0" expanded="true" />
           </folding>
