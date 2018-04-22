@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e377f16-024f-4b78-b3d0-59083abce197" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/cursedsearch/models.py" afterPath="$PROJECT_DIR$/cursedsearch/models.py" />
-      <change beforePath="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/ChoiceOutcome.html" afterPath="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/ChoiceOutcome.html" />
-      <change beforePath="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/LastPeriod.html" afterPath="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/LastPeriod.html" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change beforePath="$PROJECT_DIR$/.env" afterPath="$PROJECT_DIR$/.env" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,7 +13,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cursedsearch/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
@@ -25,6 +21,16 @@
               <folding>
                 <element signature="e#0#134#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.env">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -108,7 +114,6 @@
       <list>
         <option value="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/FinalPage.html" />
         <option value="$PROJECT_DIR$/.envls" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/_rooms/econ101.txt" />
         <option value="$PROJECT_DIR$/_rooms/room1.txt" />
         <option value="$PROJECT_DIR$/cursedsearch/pages.py" />
@@ -118,6 +123,7 @@
         <option value="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/ChoiceOutcome.html" />
         <option value="$PROJECT_DIR$/cursedsearch/templates/cursedsearch/LastPeriod.html" />
         <option value="$PROJECT_DIR$/cursedsearch/models.py" />
+        <option value="$PROJECT_DIR$/.env" />
       </list>
     </option>
   </component>
@@ -556,20 +562,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.envls">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="22" lean-forward="true" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_rooms/room1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -634,6 +626,22 @@
           <folding>
             <element signature="e#0#134#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.envls">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
