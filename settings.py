@@ -36,7 +36,7 @@ USE_POINTS = True
 
 ROOMS = [
     {
-        'name': 'cursedsearchroom',
+        'name': 'experiment',
         'display_name': 'experiment',
         'participant_label_file': '_rooms/room1.txt',
     },
