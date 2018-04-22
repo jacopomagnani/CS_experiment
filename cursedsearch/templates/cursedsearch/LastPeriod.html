@@ -8,7 +8,9 @@
 {% block content %}
 
     <p>
-        This was the last round of the current market session. Your total points in this market session are: {{market_payoff}}.
+        This was the last round of the current market session.
+        In this market session, your value was {{player.type}} (you were an {% if player.type == 5 %} L {% elif player.type == 10 %} M {% elif player.type == 100 %} H {% endif %} player).
+        Your total points in this market session are: {{market_payoff}}.
     </p>
 
     {% next_button %}

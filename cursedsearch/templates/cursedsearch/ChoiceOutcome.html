@@ -9,11 +9,15 @@
 
     {% if player.wait == 0 and player.match == 1 %}
     <p>
-        Your formed a partnership. Your partnership points are: {{player.payoff}}. You will now be placed in the waiting list.
+        Your formed a partnership.
+        Your partner's value is:{% if player.payoff == 5 %} low (L) {% elif player.payoff == 10 %} medium (M) {% elif player.payoff == 100 %} high (H) {% endif %}.
+        Your partnership points are: {{player.payoff}}.
+        If this market session continues, you will be placed in the waiting list.
     </p>
     {% elif player.wait == 0 and player.match == 0 %}
     <p>
-        You did not form a partnership. In the next round you will still be an active player.
+        You did not form a partnership.
+        If this market session continues, in the next round you will still be an active player.
     </p>
     {% endif %}
 
