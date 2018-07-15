@@ -19,7 +19,7 @@ SESSION_CONFIGS = [
     {
         'name': 'cursedsearch',
         'display_name': "Search and Matching with Noise",
-        'num_demo_participants': 24,
+        'num_demo_participants': 6,
         'app_sequence': ['cursedsearch'],
     }
     ]

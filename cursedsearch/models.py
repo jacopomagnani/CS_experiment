@@ -20,8 +20,8 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 52
     num_markets = 9
-    restart_rounds = [1, 9, 13, 21, 23, 35, 42, 44, 50]
-    termination_rounds = [8, 12, 20, 22, 34, 41, 43, 49, 52]
+    restart_rounds = [1, 3, 6, 21, 23, 35, 42, 44, 50]
+    termination_rounds = [2, 5, 20, 22, 34, 41, 43, 49, 52]
     types = [5 , 10, 100]
     signals = ["blue", "yellow", "red"]
     pL = [2/3, 1/3, 0]
